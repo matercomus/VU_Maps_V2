@@ -69,35 +69,62 @@
                 <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Description">
             </div>
 
+
+
+            <!-- Date picker input -->
             <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input"
-                                    data-target="#datetimepicker1" />
-                                <div class="input-group-append" data-target="#datetimepicker1"
-                                    data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                <label for="formGroupExampleInput">Date and Time</label>
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" />
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker1').datetimepicker();
-                        });
-                    </script>
                 </div>
             </div>
 
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
+
+
+
+            <div class="container" id="ActivityMap">
+                <img src="assets/map_aron_with_padding.png" alt="">
+                <svg width="52" height="53" id="ActivityMapPin" xmlns=" http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <image href="assets/map_pin.svg" width="52" height="53" class="d-inline-block align-top"
+                        alt="ActivityMapPin" />
+                </svg>
+            </div>
+
+            <style>
+                #ActivityMap {
+                    top: 0;
+                    left: 0;
+                    overflow: scroll;
+                    touch-action: pan-x pan-y;
+                    text-align: center;
+                    max-width: 1000px;
+                    max-height: 200px;
+
+                }
+
+                #ActivityMapPin {
+                    position: absolute;
+                    top: 70%;
+                    left: 46%;
+                }
+            </style>
+
             <div class="form-group">
                 <a class="d-flex flex-row justify-content-center">
-                    <button type="button" class="btn btn-primary btn-lg" onclick="$('#ActivityAdded').toast('show')">Add
+                    <button type="button" class="btn btn-primary btn-lg mt-2"
+                        onclick="$('#ActivityAdded').toast('show')">Add
                         Activity</button>
                 </a>
             </div>
-
         </form>
     </div>
 

@@ -36,14 +36,7 @@
 </script> -->
 
 <body>
-  <style>
-    #mapdiv,
-    img {
-      overflow: scroll;
-      touch-action: pan-x pan-y;
-      text-align: center;
-    }
-  </style>
+
 
   <!-- MODALS (the pop up windows) -->
 
@@ -392,6 +385,18 @@
   <div id="mapdiv">
     <img id="map" src="assets/map_aron_with_padding_people_and_activities.png" alt="map image"
       usemap="#people_activities_map">
+
+    <style>
+      #mapdiv {
+        top: 0;
+        left: 0;
+        overflow: scroll;
+        touch-action: pan-x pan-y;
+        text-align: center;
+        max-width: 100vw;
+        max-height: 100vh;
+      }
+    </style>
 
     <map name="people_activities_map">
       <area alt="1" title="1" coords="659,400,22" shape="circle" onclick="$('#ModalPerson1').modal('show')">
