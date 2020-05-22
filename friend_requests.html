@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- FONT AWSOME (font for glyphicons) -->
+    <script src="https://kit.fontawesome.com/534fcf60b3.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>VU Maps - Registration</title>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-light fixed-top shadow" style="background-color: white;">
+
+        <a href="settings.html">
+            <span style="color: #007AFF;">
+                <i class="fas fa-bars fa-2x"></i>
+            </span>
+        </a>
+
+        <a href="map.html">
+            <svg height="55" width="167" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <image href="assets/LOGO.svg" height="55" width="167" class="d-inline-block align-top" alt="" />
+            </svg>
+        </a>
+        <a href="profile.html">
+            <svg width="52" height="53""
+                    xmlns=" http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <image href="assets/face_cutout_circle.png" width="52" height="53" class="d-inline-block align-top"
+                    alt="" />
+            </svg>
+        </a>
+    </nav>
+
+    <h1 class="text-center mt-5 pt-5">Friend Requests</h1>
+
+    <!-- SEARCH FIELD -->
+    <div class="container mt-2">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add Friend" aria-label="Find Friend"
+                aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                    <a onclick="$('#FriendAdded').toast('show')">
+                        <svg width="23" height="24" xmlns=" http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <image href="assets/add_friend_icon.svg" width="23" height="24"
+                                class="d-inline-block align-top" alt="" />
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Friend 1 card -->
+    <div class="container">
+        <div class="d-flex flex-row justify-content-around">
+            <div class="card" id="card1" style="width: 10rem;">
+                <dic class="d-flex justify-content-center mt-3">
+                    <img src="assets/face_cutout_circle.png" style="width: 8rem;" class="card-img-top" alt="...">
+                </dic>
+                <div class="card-body">
+                    <h3 class="card-text text-center">Cardi B</h3>
+                    <div class="d-flex d-inline-block">
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card1">
+                            <i class="fas fa-check" style="color: green;"
+                                onclick="$('#FriendRequestAccepted').toast('show')">
+                            </i></button>
+
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card1">
+                            <i class="fas fa-times" style="color: red;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card2" style="width: 10rem;">
+                <dic class="d-flex justify-content-center mt-3">
+                    <img src="assets/face_cutout_circle.png" style="width: 8rem;" class="card-img-top" alt="...">
+                </dic>
+                <div class="card-body">
+                    <h3 class="card-text text-center">Cardi B</h3>
+                    <div class="d-flex d-inline-block">
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card2"><i class="fas fa-check"
+                                style="color: green;" onclick="$('#FriendRequestAccepted').toast('show')"></i></button>
+
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card2"><i class="fas fa-times"
+                                style="color: red;"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-around mt-3">
+            <div class="card" id="card3" style="width: 10rem;">
+                <dic class="d-flex justify-content-center mt-3">
+                    <img src="assets/face_cutout_circle.png" style="width: 8rem;" class="card-img-top" alt="...">
+                </dic>
+                <div class="card-body">
+                    <h3 class="card-text text-center">Cardi B</h3>
+                    <div class="d-flex d-inline-block">
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card3"><i class="fas fa-check"
+                                style="color: green;" onclick="$('#FriendRequestAccepted').toast('show')"></i></button>
+
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card3"><i class="fas fa-times"
+                                style="color: red;"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" id="card4" style="width: 10rem;">
+                <dic class="d-flex justify-content-center mt-3">
+                    <img src="assets/face_cutout_circle.png" style="width: 8rem;" class="card-img-top" alt="...">
+                </dic>
+                <div class="card-body">
+                    <h3 class="card-text text-center">Cardi B</h3>
+                    <div class="d-flex d-inline-block">
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card4"><i class="fas fa-check"
+                                style="color: green;" onclick="$('#FriendRequestAccepted').toast('show')"></i></button>
+
+                        <button class="btn btn-lg" data-toggle="collapse" data-target="#card4"><i class="fas fa-times"
+                                style="color: red;"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <div class="d-flex flex-row justify-content-around">
+                <div class="card" id="card5" style="width: 10rem;">
+                    <dic class="d-flex justify-content-center mt-3">
+                        <img src="assets/face_cutout_circle.png" style="width: 8rem;" class="card-img-top" alt="...">
+                    </dic>
+                    <div class="card-body">
+                        <h3 class="card-text text-center">Cardi B</h3>
+                        <div class="d-flex d-inline-block">
+                            <button class="btn btn-lg" data-toggle="collapse" data-target="#card5"><i
+                                    class="fas fa-check" style="color: green;"
+                                    onclick="$('#FriendRequestAccepted').toast('show')"></i></button>
+
+                            <button class="btn btn-lg" data-toggle="collapse" data-target="#card5"><i
+                                    class="fas fa-times" style="color: red;"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- TOASTS (notofication popups) -->
+        <!-- Toast Friend Added -->
+        <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-content-center">
+            <div class="toast mt-5" id="FriendAdded" role="alert" aria-live="assertive" aria-atomic="true"
+                data-delay="1000" style="position: absolute; top: 0; z-index: 5000;">
+                <div class="toast-header">
+                    <strong class="mr-3">Notification</strong>
+                    <small>moment ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    <h4 class="text-center">Friend request sent!</h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Friend Request Accepted -->
+        <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-content-center">
+            <div class="toast mt-5" id="FriendRequestAccepted" role="alert" aria-live="assertive" aria-atomic="true"
+                data-delay="1000" style="position: absolute; top: 0; z-index: 5000;">
+                <div class="toast-header">
+                    <strong class="mr-3">Notification</strong>
+                    <small>moment ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    <h4 class="text-center">Friend request Accepted!</h4>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- --------------------------------------------------------------------------------------------- -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
