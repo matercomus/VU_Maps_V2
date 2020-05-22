@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- FONT AWSOME (font for glyphicons) -->
+  <script src="https://kit.fontawesome.com/534fcf60b3.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <title>VU Maps - Registration</title>
+</head>
+
+
+
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+
+<!-- Launch modal with map legend when the page loads -->
+<!-- <script>
+  window.addEventListener("load", function () {
+    $('#LegendModal').modal('show')
+  });
+</script> -->
+
+<body>
+  <style>
+    #mapdiv,
+    img {
+      overflow: scroll;
+      touch-action: pan-x pan-y;
+      text-align: center;
+    }
+  </style>
+
+  <!-- MODALS (the pop up windows) -->
+
+  <!-- LEGEND MODALS: -->
+  <!-- Modal People legend -->
+  <div class="modal fade" id="LegendPeopleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Map Legend</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3>Find your friends and activities</h3>
+          <div class="d-flex flex-row mt-3 justify-content-around">
+            <img src="assets/people_face_legend.png" height="87.75" alt="people_face_legend">
+
+            <svg width="88.5" height="87.75" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image href="assets/people_pin_legend.svg" width="88.5" height="87.75" class="d-inline-block align-top"
+                alt="people_pin_legend" />
+            </svg>
+          </div>
+          <h4 class="text-secondary">Tap the markers on the map for more info!</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal busyness legend -->
+  <div class="modal fade" id="LegendBusynessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Map Legend</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3>Find a place to eat or study</h3>
+          <div class="d-flex flex-row mt-3 justify-content-around">
+            <svg width="54" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image href="assets/legend_quiet.svg" width="54" height="60" class="d-inline-block align-top" alt="" />
+            </svg>
+            <svg width="73.5" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image href="assets/legend_normal.svg" width="73.5" height="60" class="d-inline-block align-top" alt="" />
+            </svg>
+            <svg width="54" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image href="assets/legend_full.svg" width="54" height="60" class="d-inline-block align-top" alt="" />
+            </svg>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal classes legend -->
+  <div class="modal fade" id="LegendClassesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Map Legend</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3>Find your classes</h3>
+          <div class="d-flex flex-row mt-3 justify-content-around">
+            <svg width="46.5" height="46.5" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image href="assets/class_icon_legend_da.svg" width="46.5" height="46.5" class="d-inline-block align-top"
+                alt="" />
+            </svg>
+            <svg width="46.5" height="46.5" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image href="assets/class_icon_legend_dm.svg" width="46.5" height="46.5" class="d-inline-block align-top"
+                alt="" />
+            </svg>
+            <svg width="46.5" height="46.5" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <image href="assets/class_icon_legend_hci.svg" width="46.5" height="46.5" class="d-inline-block align-top"
+                alt="" />
+            </svg>
+
+          </div>
+          <h4 class="text-secondary">Tap classes for details.</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO MODALS: -->
+  <!-- Modal person 1 info -->
+  <div class="modal fade" id="ModalPerson1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Person Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Jacklyn Heesen</h3>
+          <h4>1st year student in AI</h4>
+          <h4>jacklynheesen@student.vu.nl</h4>
+          <h4>🇳🇱</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal person 2 info -->
+  <div class="modal fade" id="ModalPerson2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Person Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Pola Lola</h3>
+          <h4>3rd year student in Biology</h4>
+          <h4>polalola@student.vu.nl</h4>
+          <h4>🇵🇱</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal person 3 info -->
+  <div class="modal fade" id="ModalPerson3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Person Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Cardi B</h3>
+          <h4>2nd year student in History</h4>
+          <h4>cardib@student.vu.nl</h4>
+          <h4>🇺🇸</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal activity jogging -->
+  <div class="modal fade" id="ModalActivityJogging" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Activity Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Jogging Party</h3>
+          <h4>1:00pm-3:30pm</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal activity basketball -->
+  <div class="modal fade" id="ModalActivityBasketball" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Activity Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Basketball Match</h3>
+          <h4>1:00pm-3:30pm</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal activity yoga -->
+  <div class="modal fade" id="ModalActivityYoga" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Activity Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Yoga Class</h3>
+          <h4>1:00pm-3:30pm</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal class DA info -->
+  <div class="modal fade" id="ModalClassDA" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Class Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Digital Anthropology</h3>
+          <h4>1:00pm-3:30pm</h4>
+          <h4>NU-3A-65</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal class DM info -->
+  <div class="modal fade" id="ModalClassDM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Class Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Dynamic Modeling</h3>
+          <h4>3:45pm-5:30pm</h4>
+          <h4>IN-0B60</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal class HCI info -->
+  <div class="modal fade" id="ModalClassHCI" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Class Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <h3 class="text-primary">Human-Computer Interaction</h3>
+          <h4>5:30pm-7:00pm</h4>
+          <h4>HG-08A00</h4>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-light fixed-top shadow " style="background-color: white;">
+
+    <a href="settings.html">
+      <span style="color: #007AFF;">
+        <i class="fas fa-bars fa-2x"></i>
+      </span>
+    </a>
+
+    <a href="map.html">
+      <svg height="55" width="167" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <image href="assets/LOGO.svg" height="55" width="167" class="d-inline-block align-top" alt="" />
+      </svg>
+    </a>
+    <a href="profile.html">
+      <svg width="52" height="53""
+                    xmlns=" http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <image href="assets/face_cutout_circle.png" width="52" height="53" class="d-inline-block align-top" alt="profile picture" />
+      </svg>
+    </a>
+  </nav>
+
+  <!-- MAP IMAGE -->
+  <div id="mapdiv">
+    <img id="map" src="assets/map_aron_with_padding.png" alt="map image" usemap="">
+
+    <map name="people_activities_map">
+      <area alt="1" title="1" coords="659,400,22" shape="circle" onclick="$('#ModalPerson1').modal('show')">
+      <area alt="2" title="2" coords="769,512,20" shape="circle" onclick="$('#ModalPerson2').modal('show')">
+      <area alt="3" title="3" coords="760,592,21" shape="circle" onclick="$('#ModalPerson3').modal('show')">
+      <area alt="Jogging" title="Jogging" coords="783,245,826,304" shape="rect"
+        onclick="$('#ModalActivityJogging').modal('show')">
+      <area alt="Yoga" title="Yoga" coords="257,612,301,675" shape="rect"
+        onclick="$('#ModalActivityYoga').modal('show')">
+      <area alt="Basketball" title="Basketball" coords="754,406,795,467" shape="rect"
+        onclick="$('#ModalActivityBasketball').modal('show')">
+    </map>
+
+    <map name="classes_map">
+      <area alt="DM" title="DM" coords="990,528,929,470" shape="rect" onclick="$('#ModalClassDM').modal('show')">
+      <area alt="DA" title="DA" coords="658,337,727,405" shape="rect" onclick="$('#ModalClassDA').modal('show')">
+      <area alt="HCI" title="HCI" coords="861,359,905,407" shape="rect" onclick="$('#ModalClassHCI').modal('show')">
+    </map>
+  </div>
+
+  <!-- RADIO BUTTONS -->
+  <div class="container">
+    <div class="d-flex btn-group btn-group-toggle fixed-bottom mb-3  ml-3 mr-3 shadow" data-toggle="buttons">
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option1" checked data-toggle="modal" data-target="#LegendPeopleModal"
+          onclick="document.getElementById('map').src='assets/map_aron_with_padding_people_and_activities.png';
+        document.getElementById('map').useMap='#people_activities_map';">
+        <i class="fas fa-users fa-2x"></i>
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option2" data-toggle="modal" data-target="#LegendBusynessModal" onclick="document.getElementById('map').src='assets/map_aron_with_padding_busyness.png';
+        document.getElementById('map').useMap='#';">
+        <i class="fas fa-hamburger fa-2x"></i>
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option3" data-toggle="modal" data-target="#LegendClassesModal" onclick="document.getElementById('map').src='assets/map_aron_with_padding_classes.png';
+          document.getElementById('map').useMap='#classes_map';">
+        <i class="fas fa-book fa-2x"></i>
+      </label>
+    </div>
+  </div>
+
+</body>
+
+</html>
